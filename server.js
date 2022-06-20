@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome first application on Node" });
 });
 
-//require("./app/routes/routes")(app);
+require("./app/routes/routes")(app);
 
 //Set port, listend for requests
 const PORT = process.env.PORT || 8080;
