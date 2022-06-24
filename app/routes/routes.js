@@ -3,7 +3,7 @@ module.exports = (app) => {
   var router = require("express").Router();
 
   // Create New employee entry through API
-  router.post("/", employee.create);
+  router.post("/add/", employee.create);
   router.get("/findAll/", employee.findAll);
   router.get("/findOne/:id/", employee.findOne);
   router.delete("/deleteOne/:id/", employee.deleteOne);

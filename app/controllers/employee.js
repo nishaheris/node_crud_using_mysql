@@ -5,7 +5,7 @@ const Op = db.sequelize.Op;
 //Inster and save data in Employee
 exports.create = (req, res) => {
   //Validate Request
-  if (!req.query.ename) {
+  if (!req.body.ename) {
     res.status(400).send({
       message: "Employee name can not be blank",
     });
@@ -14,12 +14,12 @@ exports.create = (req, res) => {
 
   //Create an Employee
   const employee = {
-    ename: req.query.ename,
-    designation: req.query.designation,
-    email: req.query.email,
-    location: req.query.location,
-    experince: req.query.experience,
-    phone: req.query.phone,
+    ename: req.body.ename,
+    designation: req.body.designation,
+    email: req.body.email,
+    location: req.body.location,
+    experince: req.body.experince,
+    phone: req.body.phone,
   };
 
   Employee.create(employee)
@@ -136,7 +136,7 @@ exports.employeeByName = (req, res) => {
 exports.employeeEdit = (req, res) => {
   const id = req.params.id;
 
-  Employee.update(req.query, {
+  Employee.update(req.body, {
     where: { id: id },
   })
     .then((num) => {
